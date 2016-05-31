@@ -1,0 +1,14 @@
+<% if user_signed_in? %>
+	<h3>My posts</h3>
+  <div id="user_posts">
+    <%= render :partial => 'posts/user_posts', :locals => {:posts => @user_posts} %>
+  </div>
+  
+  <button type="button" class="btn btn-danger" data-toggle="collapse" data-target="#demo">add post</button>
+  <div id="demo" class="collapse">
+    <div class="authform">
+      <%= render :partial => 'posts/form', :locals => {:post => @post} %>
+    </div>
+  </div>
+<% end %>
+
