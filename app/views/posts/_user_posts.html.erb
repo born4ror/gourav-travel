@@ -1,0 +1,23 @@
+<% if !posts.blank? %>
+  <% posts.each do |p| %>
+    <div class="panel-group" id="accordion">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapse-<%= p.id%>">
+              <p style="color: <%= p.title_color %>; font-size: <%= p.title_font_size %>px; font-style: <%= p.title_font_style %>; "><%= p.title %></p>
+            </a>
+          </h4>
+        </div>
+        <div id="collapse-<%= p.id%>" class="panel-collapse collapse in">
+          <div class="panel-body">
+            <h4 style="color: <%= p.body_color %>; font-size: <%= p.body_font_size %>px; font-style: <%= p.body_font_style %>; "><%= p.body %></h4>
+            <%= link_to "delete post", post_path(p), method: :delete, remote: true, class: "btn btn-warning pull-right" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% else %>
+    <h4>You don't have any post...!</h4>
+<% end %>

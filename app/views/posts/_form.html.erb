@@ -1,0 +1,16 @@
+<%= form_for(post, remote: true) do |f| %>
+  <div class="errors_list">
+    
+  </div>
+  <div class="form-group">
+    <%= f.label :title %><br>
+    <%= f.text_field :title, class: "form-control", require: true %>
+  </div>
+  <div class="form-group">
+    <%= f.label :body %><br>
+    <%= f.text_area :body, class: "form-control", require: true %>
+  </div>
+  <div class="actions">
+    <%= f.submit "save", class: "btn btn-success post-form" %>
+  </div>
+<% end %>
